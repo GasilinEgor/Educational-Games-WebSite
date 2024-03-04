@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Авторизация</title>
+    <title>Регистрация</title>
 </head>
 <header>
     {% include 'menu.html' %}
-    <h1>Авторизируйтесь</h1>
+    <h1>Зарегистрируйтесь</h1>
 </header>
 <body>
-    <form action="/login" method="post">
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Авторизация">
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
     </form>
 </body>
 </html>
