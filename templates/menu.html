@@ -5,6 +5,10 @@
     <title>Меню</title>
 </head>
 <body>
-    <a href="/">Главная страница</a>|<a href="/login">Регистрация</a>
+    {% if user.is_authenticated %}
+        <a href="/">Главная страница</a>|<a href="/logout">Выйти</a>
+    {% else %}
+        <a href="/">Главная страница</a>|<a href="/registration">Регистрация</a>|<a href="/login">Вход</a>
+    {% endif %}
 </body>
 </html>
