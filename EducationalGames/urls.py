@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import path
 from Games import views
 from users import views as users_views
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +25,6 @@ urlpatterns = [
     path('registration/', users_views.registration),
     path('login/', users_views.login_page),
     path('logout/', users_views.logout_page),
+    path('Games/', views.game_list),
+    path('Games/SpeedScore', views.speed_score),
 ]
