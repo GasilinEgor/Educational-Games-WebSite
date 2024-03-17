@@ -17,6 +17,10 @@
                 <button onclick="start()">Запустить таймер</button>
                 <p id="timer"></p>
             </div>
+            <div hidden="hidden" id="ans">
+                <p id="answer">0</p>
+                <button id="set_answer">Нажми плз</button>
+            </div>
         </div>
     </div>
 </body>
@@ -29,6 +33,8 @@ started = false;
 
 function start() {
     if (started) {return}
+    document.getElementById("ans").style.display = 'block';
+    document.getElementById("answer").innerHTML = 0;
     let start_time = new Date();
     let stop_time = start_time.setMinutes(start_time.getMinutes() + COUNT)
     let countdown = setInterval(function () {
@@ -40,11 +46,22 @@ function start() {
         document.getElementById("timer").innerHTML = min + ":" + sec;
         if (remain < 0) {
             clearInterval(countdown);
-            document.getElementById("timer").innerHTML = "Всё!";
+            let total = document.getElementById("answer");
+            document.getElementById("timer").innerHTML = "Ваш результат: " + total.innerHTML;
             started = false;
+            document.getElementById("ans").style.display = 'none';
         }
     }, 1000);
     started = true;
 }
+</script>
+<script>
+    let total = 0;
+    ans = document.getElementById('answer')
+    const button = document.getElementById('set_answer');
+    button.addEventListener('click', () => {
+        total++;
+        ans.innerHTML = total;
+    })
 </script>
 </html>
