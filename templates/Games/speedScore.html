@@ -15,7 +15,7 @@
             <h3>Таймер</h3>
             <div>
                 <button onclick="start()">Запустить таймер</button>
-                <p id="timer"></p>
+                <p id="timer">1:00</p>
             </div>
             <div hidden="hidden" id="ans">
                 <p id="answer">0</p>
@@ -28,8 +28,8 @@
     {% include 'footer.html' %}
 </footer>
 <script>
-    const COUNT = 1;
-started = false;
+const COUNT = 1;
+let started = false;
 
 function start() {
     if (started) {return}
@@ -50,6 +50,10 @@ function start() {
             document.getElementById("timer").innerHTML = "Ваш результат: " + total.innerHTML;
             started = false;
             document.getElementById("ans").style.display = 'none';
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'ajax', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({value: total.innerHTML}));
         }
     }, 1000);
     started = true;
