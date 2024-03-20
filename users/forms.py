@@ -1,17 +1,33 @@
 from django import forms
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(
         label='Логин',
+        max_length=50,
         help_text='Придумайте себе уникальный логин!'
     )
 
     email = forms.EmailField(
         label='Email'
+    )
+
+    name = forms.CharField(
+        label='Имя',
+        max_length=30,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control'}
+        )
+    )
+
+    surname = forms.CharField(
+        label='Фамилия',
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control'}
+        )
     )
 
     class Meta:
@@ -26,7 +42,7 @@ class LoginForm(forms.Form):
         required=True,
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': "Имя",
+                   'placeholder': "Логин",
                    }
         )
     )
