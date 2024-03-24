@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Данные об аккаунте</title>
+</head>
+<header>
+    {% include 'menu.html' %}
+</header>
+<body>
+<div>
+    <h1>Данные об аккаунте</h1>
+    <div>
+        <p>Логин: {{ player.username }}</p>
+        <p>Имя: {{ player.name }}</p>
+        <p>Фамилия: {{ player.surname }}</p>
+        <p>Дата регистрации: {{ player.registration_date }}</p>
+    </div>
+</div>
+</body>
+<footer>
+    {% include 'footer.html' %}
+</footer>
+</html>

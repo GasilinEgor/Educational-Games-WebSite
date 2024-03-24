@@ -6,7 +6,7 @@
 </head>
 <body>
     {% if user.is_authenticated %}
-        <a href="/">Главная страница</a>|<a href="/Games">Игры</a>|<a href="/logout">Выйти</a>
+        <a href="/">Главная страница</a>|<a href="/Games">Игры</a>|<a href="/Account">Данные об аккаунте</a>|<a href="/logout">Выйти</a>
     {% else %}
         <a href="/">Главная страница</a>|<a href="/registration">Регистрация</a>|<a href="/login">Вход</a>
     {% endif %}

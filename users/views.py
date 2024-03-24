@@ -45,3 +45,9 @@ def login_page(request):
 def logout_page(request):
     logout(request)
     return redirect('/')
+
+
+def account_information(request):
+    player = Player.objects.filter(username=request.user.username).get()
+    context = {'player': player}
+    return render(request, 'account.html', context)
