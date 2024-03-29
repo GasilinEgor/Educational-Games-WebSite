@@ -18,8 +18,10 @@
                 <p id="timer">1:00</p>
             </div>
             <div hidden="hidden" id="ans">
-                <p id="answer">0</p>
+                <p id="example">Пример</p>
+                <input id="player_answer" autocomplete="off">
                 <button id="set_answer">Нажми плз</button>
+                <p id="answer">0</p>
             </div>
         </div>
     </div>
@@ -35,6 +37,7 @@ function start() {
     if (started) {return}
     document.getElementById("ans").style.display = 'block';
     document.getElementById("answer").innerHTML = 0;
+    document.getElementById('example').innerHTML = generate()
     let start_time = new Date();
     let stop_time = start_time.setMinutes(start_time.getMinutes() + COUNT)
     let countdown = setInterval(function () {
@@ -58,14 +61,28 @@ function start() {
     }, 1000);
     started = true;
 }
+
+
+function generate() {
+    return Math.floor(Math.random() * 10) + ' + ' + Math.floor(Math.random() * 10);
+}
 </script>
 <script>
     let total = 0;
     ans = document.getElementById('answer')
     const button = document.getElementById('set_answer');
     button.addEventListener('click', () => {
-        total++;
-        ans.innerHTML = total;
+        let answer = document.getElementById('player_answer')
+        let example = document.getElementById('example')
+        if (is_right(example.innerHTML, answer.value)) {
+            total++;
+            ans.innerHTML = total;
+        }
+        answer.value = "";
+        example.innerHTML = generate();
     })
+    function is_right(example, answer) {
+        return (Number(example.at(0)) + Number(example.at(-1))) === Number(answer);
+    }
 </script>
 </html>
