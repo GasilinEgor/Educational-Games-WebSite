@@ -16,7 +16,7 @@ def game_list(request):
 
 def speed_score(request):
     try:
-        records = SpeedScoreRecords.objects.all()
+        records = SpeedScoreRecords.objects.order_by('-score')
     except:
         records = None
     context = {'task': "Реши как можно больше задач!",
@@ -31,8 +31,8 @@ def speed(request):
         data = json.loads(request.body)
         new_value = data.get('value')
         try:
-            record = SpeedScoreRecords.objects.filter(username=request.user.username).get()
-            if record.score > new_value:
+            record = SpeedScoreRecords.objects.filter(username=request.user.username).first()
+            if int(record.score) < int(new_value):
                 SpeedScoreRecords.objects.filter(username=request.user.username).delete()
                 new_record = SpeedScoreRecords(username=request.user.username, score=int(new_value), date=date.today())
                 new_record.save()
