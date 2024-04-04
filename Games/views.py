@@ -2,6 +2,8 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from .models import SpeedScoreRecords
+from datetime import date
 
 
 def index(request):
@@ -13,7 +15,13 @@ def game_list(request):
 
 
 def speed_score(request):
-    context = {'task': "Реши как можно больше задач!"}
+    try:
+        records = SpeedScoreRecords.objects.all()
+    except:
+        records = None
+    context = {'task': "Реши как можно больше задач!",
+               'records': records,
+               }
     return render(request, 'Games/speedScore.html', context)
 
 
@@ -21,9 +29,16 @@ def speed_score(request):
 def speed(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        print(data)
         new_value = data.get('value')
-        print(new_value)
+        try:
+            record = SpeedScoreRecords.objects.filter(username=request.user.username).get()
+            if record.score > new_value:
+                SpeedScoreRecords.objects.filter(username=request.user.username).delete()
+                new_record = SpeedScoreRecords(username=request.user.username, score=int(new_value), date=date.today())
+                new_record.save()
+        except:
+            new_record = SpeedScoreRecords(username=request.user.username, score=int(new_value), date=date.today())
+            new_record.save()
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False})

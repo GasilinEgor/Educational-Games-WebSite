@@ -24,6 +24,24 @@
                 <p id="answer">0</p>
             </div>
         </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ник игрока</th>
+                        <th>Количество очков</th>
+                        <th>Дата рекорда</th>
+                    </tr>
+                </thead>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record.username }}</td>
+                        <td>{{ record.score }}</td>
+                        <td>{{ record.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </body>
 <footer>
