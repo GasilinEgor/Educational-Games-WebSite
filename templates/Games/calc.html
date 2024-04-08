@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Устный счет</title>
+    <link rel = "stylesheet" href = "static/Educational-Games-WebSite/css/speedStyle.css">
+</head>
+<body>
+    <header><h1 id="header">Устный счет</h1></header>
+<div class="container">
+    <div class="question"></br></div>
+    <p><div>
+        <label>Выберите уровень:</label>
+        <select id="variableMode">
+            <option value="1">1</option> <!--две однозначные-->
+            <option value="2">2</option> <!--две двузначные-->
+        </select>
+    </div></p>
+    <p><div>
+        <label>Выберите время тренировки (мин.):</label>
+        <select id="trainingTime">
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+        </select>
+    </div></p>
+    <button id="startButton">Начать тренировку</button>
+    <div id="timeRemaining"></div>
+    <div id="countdown"></div>
+    <p><div class="input-container">
+        <input type="number" id="answer" placeholder="Ответ">
+    </div></p>
+    <div class="message" id="message"></div>
+</div>
+<script src = "static/Educational-Games-WebSite/js/generator.js">
+
+</script>
+</body>
+</html>

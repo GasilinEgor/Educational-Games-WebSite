@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1{
+    font-size: 50px;
+    color: black;
+}
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+.question {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#answer {
+    width: 100px;
+    font-size: 18px;
+    padding: 5px;
+}
+.message {
+    font-size: 18px;
+    margin-top: 5px;
+}
+#countdown {
+    font-size: 20px;
+    margin-top: 10px;
+}
+#timeRemaining {
+    font-size: 18px;
+    margin-top: 10px;
+}
