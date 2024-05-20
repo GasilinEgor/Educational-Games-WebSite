@@ -3,8 +3,8 @@ stages:
   - publish
   - deploy
 
-services:
-  - docker:dind
+# services:
+#   - docker:dind
   
 variables:
   DOCKER_IMAGE_NAME: "sok"
@@ -16,7 +16,7 @@ build:
   script:
     - docker build -t $DOCKER_IMAGE_NAME .
   tags:
-    - ubuntu
+    - windows
   image:
     docker:stable
 
@@ -28,7 +28,7 @@ publish:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $DOCKER_IMAGE_NAME
   tags:
-    - ubuntu
+    - windows
   image:
     docker:stable
 
@@ -52,6 +52,6 @@ deploy:
     - unset CID
     - echo "Container is running."
   tags:
-    - ubuntu
+    - windows
   image:
     docker:stable
