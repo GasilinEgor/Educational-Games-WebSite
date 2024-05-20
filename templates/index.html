@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,417 @@
     <p>Добро пожаловать на главную страницу!</p>
 </body>
 <footer>
+    {% include 'footer.html' %}
+</footer>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="stylesheet" href="{% static 'Educational-Games-WebSite/css/index.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<header>
+
+
+    
+
+
+
+
+
+
+
+
+
+    <div class="div1">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/3bf827366fb8945a50c08a4f89855519b567c9cc774d17c982efa8dd03da44ec?apiKey=623949ae645442948e0700762c61b9d6&"
+          class="img"
+        />
+        <div class="div-2">
+          <div class="div-3">О нас</div>
+          <div class="div-4">О проекте</div>
+          <div class="div-5">Отзывы</div>
+        </div>
+        <div class="div-6" data-el="div-1">Войти</div>
+    </div>
+    <style>
+        .div1 {
+          display: flex;
+          width: 100%;
+          align-items: start;
+          gap: 20px;
+          font-size: 18px;
+          letter-spacing: -0.36px;
+          justify-content: space-between;
+        }
+        
+        
+        .img {
+          aspect-ratio: 2;
+          object-fit: auto;
+          object-position: center;
+          width: 117px;
+          fill: #000;
+          align-self: stretch;
+          max-width: 100%;
+        }
+        .div-2 {
+          display: flex;
+          margin-top: 12px;
+          gap: 20px;
+          font-weight: 400;
+          justify-content: space-between;
+        }
+        .div-3 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+        }
+        .div-4 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+        }
+        .div-5 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+        }
+        .div-6 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+          justify-content: center;
+          border-radius: 50px;
+          border-color: rgba(0, 0, 0, 1);
+          border-style: solid;
+          border-width: 2px;
+          font-weight: 500;
+          white-space: nowrap;
+          padding: 15px 35px;
+        }
+    </style>
+
+
+
+    {% include 'menu.html' %}
+    <!--<h1>Главная страница</h1>
+    <div class="logo">
+        <img src="Logo.png" alt="Site Logo">
+    </div>
+    <a href="#aboutUs" class="au">О нас</a>
+    <a href="#aboutGames" class="au">Об играх</a>
+    <a href="login.html" class="custom-button">
+        <div class="button-icon">&#9733;</div> 
+        <div class="button-text">Войти</div>
+    </a>-->
+</header>
+<body>
+
+    <div class="div22">
+        <div class="div-222">Развивающие игры для детей</div>
+        <div class="div-322">Учись, считай, побеждай котиков!</div>
+        <div class="div-422">Играть</div>
+      </div>
+      <style>
+        .div22 {
+          display: flex;
+          flex-direction: column;
+          margin: auto 0;
+        }
+        @media (max-width: 991px) {
+          .div22 {
+            max-width: 100%;
+          }
+        }
+        .div-222 {
+          text-transform: uppercase;
+          font: 700 58px/65px Rubik, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .div-222 {
+            max-width: 100%;
+            font-size: 40px;
+            line-height: 50px;
+          }
+        }
+        .div-322 {
+          margin-top: 29px;
+          font: 400 24px Rubik, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .div-322 {
+            max-width: 100%;
+          }
+        }
+        .div-422 {
+          leading-trim: both;
+          text-edge: cap;
+          border-radius: 58.333px;
+          background-color: #8526ff;
+          margin-top: 42px;
+          width: 234px;
+          max-width: 100%;
+          align-items: center;
+          color: #eeefff;
+          white-space: nowrap;
+          letter-spacing: -0.56px;
+          justify-content: center;
+          padding: 19px 60px;
+          font: 500 28px Rubik, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .div-422 {
+            margin-top: 40px;
+            white-space: initial;
+            padding: 0 20px;
+          }
+        }
+      </style>
+   
+
+
+
+
+
+
+
+
+
+
+    <!--<p><h1>РАЗВИВАЮЩИЕ ИГРЫ ДЛЯ ДЕТЕЙ<h1></p>
+    <p>Учись, считай, побеждай котиков!</p>-->
+
+    <a name="aboutGames"></a>
+   <!-- <div id="aboutg">
+      <h2>Об играх</h2>
+    <p class="disc">Крестики-нолики подарят атмосферу захватывающего приключения, где каждый ход может решить судьбу твоего поля. Не дай котикам обставить тебя в этом поединке и поставь крест на победе твоего соперника! 
+        Одолел злобного котика в крестиках-ноликах? Теперь ты почти успешен. Чтобы выкрутить успех на максимум, тренируй мозги с помощью устного счёта! Складывай, умножай, вычисляй,  но помни, что у тебя КОТОстрофически мало времени!</p>  
+    </div>-->
+
+
+
+    <div class="div3">Об играх</div>
+    <style>
+    .div3 {
+        margin-top: 117px;
+        font: 700 52px Inter, sans-serif;
+    }
+    @media (max-width: 991px) {
+        .div3 {
+        max-width: 100%;
+        margin-top: 40px;
+        font-size: 40px;
+        }
+    }
+    </style>
+    <div class="divdd">
+        Крестики-нолики подарят атмосферу захватывающего приключения, где каждый ход
+        может решить судьбу твоего поля. Не дай котикам обставить тебя в этом поединке
+        и поставь крест на победе твоего соперника!
+        <br />
+        Одолел злобного котика в крестиках-ноликах? Теперь ты почти успешен. Чтобы
+        выкрутить успех на максимум, тренируй мозги с помощью устного счёта!
+        Складывай, умножай, вычисляй, но помни, что у тебя КОТОстрофически мало
+        времени!
+      </div>
+      <style>
+        .divdd {
+          margin-top: 33px;
+          font: 400 24px/40px Rubik, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .divdd {
+            max-width: 100%;
+          }
+        }
+      </style>
+
+
+
+
+
+
+
+
+
+
+    <div class="div11">
+        <div class="div-211">О нас</div>
+        <div class="div-311">
+          Приветствуем всех, кто выбрал путь сильных и решил прокачиваться вместе с
+          котиками! Мы - команда студентов
+          <span style="line-height: 40px">РТУ</span>
+          МИРЭА из группы ИКБО-04-22, вот они слева направо: Ольга Довбуш, Егор
+          Гасилин, Софья Капитонова.
+        </div>
+      </div>
+      <style>
+        .div11 {
+          background: linear-gradient(
+            180deg,
+            rgba(238, 239, 255, 0) 0%,
+            #4105c0 100%
+          );
+          display: flex;
+          margin-top: 265px;
+          width: 100%;
+          flex-direction: column;
+          align-items: start;
+          padding: 80px 75px;
+        }
+       
+        
+        .div-211 {
+          text-align: center;
+          margin-top: 43px;
+          font: 700 52px/87% Rubik, sans-serif;
+        }
+
+        .div-311 {
+          width: 803px;
+          margin: 38px 0 673px;
+          font: 400 24px/45px Rubik, sans-serif;
+        }
+        @media (max-width: 991px) {
+          .div-311 {
+            max-width: 100%;
+            margin-bottom: 40px;
+          }
+        }
+      </style>
+    
+    <a name="aboutUs"></a>
+    <!--<h2>О нас</h2>
+    <p>Приветствуем всех, кто выбрал путь сильных и решил прокачиваться вместе с котиками! Мы - команда студентов РТУ МИРЭА из группы ИКБО-04-22, вот они слева направо: Ольга Довбуш, Егор Гасилин, Софья Капитонова. </p>
+    -->
+</body>
+<footer>
+   
+
+    <div class="divd">
+        <div class="div-21">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a98cc4591e1b7c6ed02f5651f0f41ec7b598dcc533ca93149f97b498bedd9ee5?apiKey=623949ae645442948e0700762c61b9d6&"
+            class="img1"
+          />
+          <div class="div-31">Развивающие игры</div>
+        </div>
+        <div class="div-41">
+          <div class="div-5">Главная</div>
+          <div class="div-6">О проекте</div>
+          <div class="div-7">О нас</div>
+        </div>
+        <div class="div-8">
+          <div class="div-9">Крестики-нолики</div>
+          <div class="div-10">Устный счёт</div>
+        </div>
+        <div class="div-11">Войти</div>
+      </div>
+      <style>
+        .divd {
+          background-color: #000;
+          display: flex;
+          width: 100%;
+          align-items: flex-start;
+          gap: 20px;
+          font-size: 18px;
+          color: #fff;
+          font-weight: 500;
+          letter-spacing: -0.36px;
+          justify-content: space-between;
+          padding: 78px 76px;
+        }
+     
+        
+        .div-21 {
+          align-self: end;
+          display: flex;
+          margin-top: 34px;
+          flex-direction: column;
+          font-size: 20px;
+          text-transform: uppercase;
+          letter-spacing: -0.4px;
+        }
+        .img1 {
+          aspect-ratio: 2;
+          object-fit: auto;
+          object-position: center;
+          width: 181px;
+          fill: #fff;
+          align-self: center;
+          margin: 0 18px;
+        }
+        .div-31 {
+          font-family: Rubik, sans-serif;
+          margin-top: 36px;
+        }
+        .div-41 {
+          align-self: end;
+          display: flex;
+          margin-top: 56px;
+          flex-direction: column;
+        }
+        @media (max-width: 991px) {
+          .div-4 {
+            margin-top: 40px;
+          }
+        }
+        .div-5 {
+          font-family: Rubik, sans-serif;
+        }
+        .div-6 {
+          font-family: Rubik, sans-serif;
+          margin-top: 40px;
+        }
+        .div-7 {
+          font-family: Rubik, sans-serif;
+          margin-top: 42px;
+        }
+        @media (max-width: 991px) {
+          .div-7 {
+            margin-top: 40px;
+          }
+        }
+        .div-8 {
+          display: flex;
+          flex-direction: column;
+          margin: auto 0;
+        }
+        .div-9 {
+          font-family: Rubik, sans-serif;
+        }
+        .div-10 {
+          font-family: Rubik, sans-serif;
+          margin-top: 31px;
+        }
+        .div-11 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+          justify-content: center;
+          border-radius: 50px;
+          border-color: rgba(255, 255, 255, 1);
+          border-style: solid;
+          border-width: 2px;
+          white-space: nowrap;
+          margin: auto 0;
+          padding: 15px 35px;
+        }
+        @media (max-width: 991px) {
+          .div-11 {
+            white-space: initial;
+            padding: 0 20px;
+          }
+        }
+      </style>
+
     {% include 'footer.html' %}
 </footer>
 </html>
