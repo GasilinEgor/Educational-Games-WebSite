@@ -1,6 +1,6 @@
 stages:
   - build
- # - publi3sh
+  - publish
   - deploy
 
   
@@ -18,17 +18,17 @@ build:
   image:
     docker:stable
 
-# publish:
-#   stage: publish
-#   only:
-#     - master
-#   script:
-#     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-#     - docker push $DOCKER_IMAGE_NAME
-#   tags:
-#     - windows
-#   image:
-#     docker:stable
+publish:
+  stage: publish
+  only:
+    - master
+  script:
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    - docker push $DOCKER_IMAGE_NAME
+  tags:
+    - windows
+  image:
+    docker:stable
 
 deploy:
   stage: deploy
