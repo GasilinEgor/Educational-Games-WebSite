@@ -28,4 +28,5 @@ urlpatterns = [
     path('Games/', views.game_list),
     path('Games/SpeedScore/', views.speed_score),
     path('Account/', users_views.account_information),
+    path('Games/SpeedScore/ajax', views.speed),
 ]

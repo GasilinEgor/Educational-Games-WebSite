@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Скоростной счет</title>
 </head>
@@ -11,40 +12,47 @@
 <body>
     <p>{{ task }}</p>
     <div>
+    <label>Выберите уровень:</label>
+        <select id="level">
+            <option value="1">1</option> <!--две однозначные-->
+            <option value="2">2</option> <!--две двузначные-->
+        </select>
         <div>
             <h3>Таймер</h3>
             <div>
                 <button onclick="start()">Запустить таймер</button>
-                <p id="timer"></p>
+                <p id="timer">1:00</p>
             </div>
+            <div hidden="hidden" id="ans">
+                <p id="example">Пример</p>
+                <input id="player_answer" autocomplete="off">
+                <button id="set_answer">Нажми плз</button>
+                <p id="answer">0</p>
+            </div>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ник игрока</th>
+                        <th>Количество очков</th>
+                        <th>Дата рекорда</th>
+                    </tr>
+                </thead>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record.username }}</td>
+                        <td>{{ record.score }}</td>
+                        <td>{{ record.date }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </body>
 <footer>
     {% include 'footer.html' %}
 </footer>
-<script>
-    const COUNT = 1;
-started = false;
-
-function start() {
-    if (started) {return}
-    let start_time = new Date();
-    let stop_time = start_time.setMinutes(start_time.getMinutes() + COUNT)
-    let countdown = setInterval(function () {
-        let now = new Date().getTime();
-        let remain = stop_time - now;
-        let min = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
-        let sec = Math.floor((remain % (1000 * 60)) / 1000);
-        sec = sec < 10 ? "0" + sec : sec
-        document.getElementById("timer").innerHTML = min + ":" + sec;
-        if (remain < 0) {
-            clearInterval(countdown);
-            document.getElementById("timer").innerHTML = "Всё!";
-            started = false;
-        }
-    }, 1000);
-    started = true;
-}
-</script>
+<script src="{% static 'Educational-Games-WebSite/js/startSpeedScore.js' %}"></script>
+<script src="{% static 'Educational-Games-WebSite/js/addScore.js' %}"></script>
 </html>
