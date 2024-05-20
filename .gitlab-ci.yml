@@ -12,6 +12,8 @@ build:
   stage: build
   script:
     - docker build -t $DOCKER_IMAGE_NAME .
+  tags:
+    - ubuntu
 
 publish:
   stage: publish
@@ -20,6 +22,8 @@ publish:
   script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $DOCKER_IMAGE_NAME
+  tags:
+    - ubuntu
 
 deploy:
   stage: deploy
@@ -40,3 +44,5 @@ deploy:
     - fi
     - unset CID
     - echo "Container is running."
+  tags:
+    - ubuntu
