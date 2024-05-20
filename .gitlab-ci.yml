@@ -3,6 +3,9 @@ stages:
   - publish
   - deploy
 
+services:
+  - docker:dind
+  
 variables:
   DOCKER_IMAGE_NAME: "sok"
 
