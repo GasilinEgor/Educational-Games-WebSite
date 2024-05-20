@@ -9,8 +9,16 @@ button.addEventListener('click', () => {
         ans.innerHTML = total;
     }
     answer.value = "";
-    example.innerHTML = generate();
+    example.innerHTML = generate(document.getElementById("level").value);
 })
 function is_right(example, answer) {
-    return (Number(example.at(0)) + Number(example.at(-1))) === Number(answer);
+    return calculateAnswer(example) === Number(answer);
+}
+
+
+function calculateAnswer(expression) { //функция для вычисления ответа выражения
+    expression = expression.replace(/\//g, '*1/');
+    let answer = eval(expression);
+    answer = Math.round(answer * 100) / 100;
+    return answer;
 }
