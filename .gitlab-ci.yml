@@ -30,6 +30,7 @@ publish:
   image:
     docker:stable
 
+
 deploy:
   stage: deploy
   script:
