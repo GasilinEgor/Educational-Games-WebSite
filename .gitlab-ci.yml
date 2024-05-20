@@ -14,6 +14,8 @@ build:
     - docker build -t $DOCKER_IMAGE_NAME .
   tags:
     - ubuntu
+  image:
+    docker:stable
 
 publish:
   stage: publish
@@ -24,6 +26,8 @@ publish:
     - docker push $DOCKER_IMAGE_NAME
   tags:
     - ubuntu
+  image:
+    docker:stable
 
 deploy:
   stage: deploy
@@ -46,3 +50,5 @@ deploy:
     - echo "Container is running."
   tags:
     - ubuntu
+  image:
+    docker:stable
