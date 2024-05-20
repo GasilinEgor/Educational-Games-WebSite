@@ -3,8 +3,6 @@ stages:
   - publish
   - deploy
 
-# services:
-#   - docker:dind
   
 variables:
   DOCKER_IMAGE_NAME: "sok"
@@ -23,7 +21,7 @@ build:
 publish:
   stage: publish
   only:
-    - main
+    - master
   script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker push $DOCKER_IMAGE_NAME
@@ -40,14 +38,14 @@ deploy:
     - CID=$(docker ps -q -f status=running -f name=^/${CONTAINER_NAME}$)
     - if [ ! "${CID}" ]; then
     - echo "Container doesn't exist"
-    - docker run -d -p 8000:8000 --name games_container app
+    - docker run -d -p 8000:8000 --name games_container $DOCKER_IMAGE_NAME
     - fi
     - if [ "${CID}" ]; then
     - echo "Container exists"
     - echo "Removing container"
     - docker rm games_container -f
     - echo "Creating new container"
-    - docker run -d -p 8000:8000 --name games_container app
+    - docker run -d -p 8000:8000 --name games_container $DOCKER_IMAGE_NAME
     - fi
     - unset CID
     - echo "Container is running."
