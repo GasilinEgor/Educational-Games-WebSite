@@ -27,6 +27,9 @@ urlpatterns = [
     path('logout/', users_views.logout_page),
     path('Games/', views.game_list),
     path('Games/SpeedScore/', views.speed_score),
+    path('Games/Tic-tac-toe/', views.tic_tac_toe),
+    path('Games/Tic-tac-toe/close/', views.close_img),
+    path('Games/Tic-tac-toe/circle/', views.circle_img),
     path('Account/', users_views.account_information),
     path('Games/SpeedScore/ajax', views.speed),
 ]

@@ -5,10 +5,105 @@
     <title>Меню</title>
 </head>
 <body>
-    {% if user.is_authenticated %}
-        <a href="/">Главная страница</a>|<a href="/Games">Игры</a>|<a href="/Account">Данные об аккаунте</a>|<a href="/logout">Выйти</a>
-    {% else %}
-        <a href="/">Главная страница</a>|<a href="/registration">Регистрация</a>|<a href="/login">Вход</a>
-    {% endif %}
+
+    <div class="menu">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/3bf827366fb8945a50c08a4f89855519b567c9cc774d17c982efa8dd03da44ec?apiKey=623949ae645442948e0700762c61b9d6&"
+          class="img"
+        />
+        <div class="div-2">
+            {% if user.is_authenticated %}
+
+                <div class="div-3">
+                    <a href="/">Главная страница</a>
+                </div>
+                <div class="div-4">
+                    <a href="/Games">Игры</a>
+                </div>
+                <div class="div-5"><a href="/Account">Профиль</a></div>
+                <div class="div-6" data-el="div-1"><a href="/logout">Выйти</a></div></a>
+
+            {% else %}
+                <div class="div-3">
+                    <a href="/">Главная страница</a>
+                </div>
+                <div class="div-4">
+                    <a href="/registration">Регистрация</a>
+                </div>
+                <div class="div-6" data-el="div-1"><a href="/login">Вход</a></div></a>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+    <style>
+        .menu {
+          display: flex;
+          width: 100%;
+          align-items: start;
+          gap: 20px;
+          font-size: 18px;
+          letter-spacing: -0.36px;
+          justify-content: space-between;
+        }
+
+
+        .img {
+          aspect-ratio: 2;
+          object-fit: auto;
+          object-position: center;
+          width: 117px;
+          fill: #000;
+          align-self: stretch;
+          max-width: 100%;
+        }
+        .div-2 {
+          display: flex;
+          margin-top: 12px;
+          gap: 20px;
+          font-weight: 400;
+          justify-content: space-between;
+        }
+        .div-3 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+        }
+        .div-4 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+        }
+        .div-5 {
+            leading-trim: both;
+            text-edge: cap;
+            font-family: Rubik, sans-serif;
+        }
+        .div-6 {
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Rubik, sans-serif;
+          justify-content: center;
+          border-radius: 50px;
+          border-color: rgba(0, 0, 0, 1);
+          border-style: solid;
+          border-width: 2px;
+          font-weight: 500;
+          white-space: nowrap;
+          padding: 15px 35px;
+        }
+    </style>
+
+
+<!--    {% if user.is_authenticated %}-->
+<!--        <a href="/">Главная страница</a>|<a href="/Games">Игры</a>|<a href="/Account">Данные об аккаунте</a>|<a href="/logout">Выйти</a>-->
+<!--    {% else %}-->
+<!--        <a href="/">Главная страница</a>|<a href="/registration">Регистрация</a>|<a href="/login">Вход</a>-->
+<!--    {% endif %}-->
 </body>
 </html>
+
+
+

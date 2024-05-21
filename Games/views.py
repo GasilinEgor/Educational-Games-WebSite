@@ -24,7 +24,14 @@ def speed_score(request):
                }
     return render(request, 'Games/speedScore.html', context)
 
+def tic_tac_toe(request):
+    context = {'task': "Победи своего друга!"}
+    return render(request, 'Games/tic.html', context)
 
+def circle_img(request):
+    return render(request, 'static/Educational-Games-WebSite/js/circle.png')
+def close_img(request):
+    return render(request, 'Games/Tic-tac-toe/close.png')
 @csrf_exempt
 def speed(request):
     if request.method == 'POST':
