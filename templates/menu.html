@@ -16,22 +16,22 @@
             {% if user.is_authenticated %}
 
                 <div class="div-3">
-                    <a href="/">Главная страница</a>
+                    <a href="/" class="tt">Главная страница</a>
                 </div>
                 <div class="div-4">
-                    <a href="/Games">Игры</a>
+                    <a href="/Games" class="tt">Игры</a>
                 </div>
-                <div class="div-5"><a href="/Account">Профиль</a></div>
-                <div class="div-6" data-el="div-1"><a href="/logout">Выйти</a></div></a>
+                <div class="div-5"><a href="/Account" class="tt">Профиль</a></div>
+                <div class="div-6" data-el="div-1"><a href="/logout" class="tt">Выйти</a></div></a>
 
             {% else %}
                 <div class="div-3">
-                    <a href="/">Главная страница</a>
+                    <a href="/" class="tt">Главная страница</a>
                 </div>
                 <div class="div-4">
-                    <a href="/registration">Регистрация</a>
+                    <a href="/registration" class="tt">Регистрация</a>
                 </div>
-                <div class="div-6" data-el="div-1"><a href="/login">Вход</a></div></a>
+                <div class="div-6" data-el="div-1"><a href="/login" class="tt">Вход</a></div></a>
             {% endif %}
 
         </div>
@@ -39,6 +39,10 @@
 
     </div>
     <style>
+      .tt{
+        text-decoration: none;
+        color: #000;
+      }
         .menu {
           display: flex;
           width: 100%;
@@ -70,18 +74,22 @@
           leading-trim: both;
           text-edge: cap;
           font-family: Rubik, sans-serif;
+          text-decoration: none;
         }
         .div-4 {
           leading-trim: both;
           text-edge: cap;
           font-family: Rubik, sans-serif;
+          text-decoration: none;
         }
         .div-5 {
             leading-trim: both;
             text-edge: cap;
             font-family: Rubik, sans-serif;
+            text-decoration: none;
         }
         .div-6 {
+          text-decoration: none;
           leading-trim: both;
           text-edge: cap;
           font-family: Rubik, sans-serif;

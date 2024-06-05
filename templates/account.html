@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <title>Профиль</title>
 </head>
-<header>
-    {% include 'menu.html' %}
-</header>
+
 <body>
-<div class="content">
-    <div class="acc">Профиль</div>
-    <style>
-        .acc {
-            text-transform: uppercase;
-            margin-left: 6px;
-            font: 700 40px/55px Rubik, sans-serif;
-            margin-top: 22px;
-        }
-        @media (max-width: 991px) {
-            .div-2222 {
-            max-width: 100%;
-            font-size: 20px;
-            line-height: 30px;
+    <div class="content">
+        <header>
+            {% include 'menu.html' %}
+        </header>
+
+        <div class="acc">Профиль</div>
+        <style>
+            .acc {
+                text-transform: uppercase;
+                margin-left: 6px;
+                font: 700 40px/55px Rubik, sans-serif;
+                margin-top: 22px;
             }
-        }
-    </style>
-    <div class="text1">
-        <p>Логин: {{ player.username }}</p>
-        <p>Имя: {{ player.name }}</p>
-        <p>Фамилия: {{ player.surname }}</p>
-        <p>Дата регистрации: {{ player.registration_date }}</p>
+            @media (max-width: 991px) {
+                .div-2222 {
+                max-width: 100%;
+                font-size: 20px;
+                line-height: 30px;
+                }
+            }
+        </style>
+        <div class="text1">
+            <p>Логин: {{ player.username }}</p>
+            <p>Имя: {{ player.name }}</p>
+            <p>Фамилия: {{ player.surname }}</p>
+            <p>Дата регистрации: {{ player.registration_date }}</p>
+        </div>
+        <style>
+            .text1{
+                margin-left: 12px;
+                font-family: 'Rubik', sans-serif;
+                font-size: 20px;
+            }
+        </style>
     </div>
-    <style>
-        .text1{
-            margin-left: 12px;
-            font-family: 'Rubik', sans-serif;
-            font-size: 20px;
-        }
-    </style>
-</div>
 </body>
 <footer>
-    {% include 'footer.html' %}
     <div class="footer"> <!-- Подвал -->
         <div class="footer-section">
           <img
@@ -52,17 +53,23 @@
           <div class="footer-text">Развивающие игры</div>
         </div>
         <div class="footer-section">
-          <div class="footer-link">Главная</div>
-          <div class="footer-link">О проекте</div>
-          <div class="footer-link">О нас</div>
+          <div class="footer-link"><a href="/index" class="ttt">Главная</a></div>
+          <div class="footer-link"><a href="#aboutGames" class="ttt">О проекте</a></div>
+          <div class="footer-link"><a href="#aboutUs" class="ttt">О нас</a></div>
         </div>
         <div class="footer-section">
-          <div class="footer-link">Крестики-нолики</div>
-          <div class="footer-link">Устный счёт</div>
+          <div class="footer-link"><a href="Games/tic.html" class="ttt">Крестики-нолики</a></div>
+          <div class="footer-link"><a href="Games/speedScore.html" class="ttt">Устный счёт</a></div>
         </div>
-        <div class="footer-login">Войти</div>
+        <div class="footer-login"><a href="/login.html" class="ttt">Войти</a></div>
       </div>
       <style>
+
+        .ttt{
+          color: #fff;
+          text-decoration: none;
+        }
+
         body {
         display: flex;
         flex-direction: column;
@@ -140,6 +147,7 @@
         }
         }
       </style>
+
 
 </footer>
 </html>

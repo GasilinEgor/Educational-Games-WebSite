@@ -6,152 +6,263 @@
     <title>Скоростной счет</title>
 
 </head>
-<header>
-    {% include 'menu.html' %}
-    <div class="div-2222">Скоростной счет</div>
-    <style>
-        .div-2222 {
-            text-transform: uppercase;
-            text-align: center;
-            font: 700 58px/65px Rubik, sans-serif;
-        }
-        @media (max-width: 991px) {
-            .div-2222 {
-            max-width: 100%;
-            font-size: 40px;
-            line-height: 50px;
-            }
-        }
-    </style>
-</header>
-<body>
-    <p class="task">{{ task }}</p>
-    <style>
-        .task{
-            text-transform: uppercase;
-            text-align: center;
-            font: 700 30px/45px Rubik, sans-serif;
-        }
-        @media (max-width: 991px) {
-            .task {
-            max-width: 100%;
-            font-size: 20px;
-            line-height: 30px;
-            }
-        }
-    </style>
-    <div>
 
-        <div class = "llevel">
-            <label class="text">Выберите уровень:</label>
-            <select id="level">
-                <option value="1">1</option> <!--две однозначные-->
-                <option value="2">2</option> <!--две двузначные-->
-            </select>
-        </div>
+<body>
+    <div class="content">
+        <header>
+            {% include 'menu.html' %}
+            <div class="div-2222">Скоростной счет</div>
+            <style>
+                .div-2222 {
+                    text-transform: uppercase;
+                    text-align: center;
+                    font: 700 58px/65px Rubik, sans-serif;
+                }
+                @media (max-width: 991px) {
+                    .div-2222 {
+                    max-width: 100%;
+                    font-size: 40px;
+                    line-height: 50px;
+                    }
+                }
+            </style>
+        </header>
+
+
+
+
+        <p class="task">{{ task }}</p>
         <style>
-            .llevel {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column; /* Располагаем элементы вертикально */
-                margin-bottom: 20px; /* Добавляем отступ снизу для разделения с другими элементами */
+            .task{
+                text-transform: uppercase;
+                text-align: center;
+                font: 700 30px/45px Rubik, sans-serif;
+            }
+            @media (max-width: 991px) {
+                .task {
+                max-width: 100%;
+                font-size: 20px;
+                line-height: 30px;
+                }
             }
         </style>
         <div>
-            <h3 class="text">Таймер</h3>
-            <style>
-                .text{
-                    text-align: center;
-                    font-family: 'Rubik', sans-serif;
-                    font-size: 25px;
-                }
-            </style>
-            <div class="start">
-                <button onclick="start()" id="startButton">Запустить таймер</button>
 
+            <div class = "llevel">
+                <label class="text">Выберите уровень:</label>
+                <select id="level">
+                    <option value="1">1</option> <!--две однозначные-->
+                    <option value="2">2</option> <!--две двузначные-->
+                </select>
             </div>
-            <p id="timer" class ="text"><br>1:00</p>
             <style>
-                .start {
-                display: flex;
-                justify-content: center; /* Центрирование по горизонтали */
-                align-items: center; /* Центрирование по вертикали */
-                margin-top: 42px;
-                }
-
-                #startButton {
-                    border-radius: 58.333px;
-                    background-color: #8526ff;
-                    color: #eeefff;
-                    white-space: nowrap;
-                    letter-spacing: -0.56px;
-                    font: 500 28px Rubik, sans-serif;
-                    padding: 19px 60px;
-                    border: none;
-                    cursor: pointer;
-                }
-
-                @media (max-width: 991px) {
-                    .start {
-                        margin-top: 40px;
-                    }
-                    #startButton {
-                        white-space: initial;
-                        padding: 10px 20px; /* Скорректированный padding для маленьких экранов */
-                        font-size: 24px; /* Скорректированный размер шрифта для маленьких экранов */
-                    }
+                .llevel {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column; /* Располагаем элементы вертикально */
+                    margin-bottom: 20px; /* Добавляем отступ снизу для разделения с другими элементами */
                 }
             </style>
-            <div hidden="hidden" id="ans" class="text">
-                <p id="example">Пример</p>
-                <input id="player_answer" autocomplete="off">
-                <button id="set_answer">Нажми плз</button>
+            <div>
+                <h3 class="text">Таймер</h3>
                 <style>
-                    #set_answer {
-                        border: 2px solid #000; /* Толщина границы и ее цвет */
-                        border-radius: 10px; /* Закругление углов */
-                        padding: 10px 20px; /* Внутренние отступы */
-                        font-size: 16px; /* Размер шрифта */
-                        background-color: transparent; /* Прозрачный фон */
-                        cursor: pointer; /* Изменение курсора при наведении */
-                    }
-
-                    #set_answer:hover {
-                        background-color: #f0f0f0; /* Цвет фона при наведении курсора */
+                    .text{
+                        text-align: center;
+                        font-family: 'Rubik', sans-serif;
+                        font-size: 25px;
                     }
                 </style>
-                <p id="answer">0</p>
-            </div>
-        </div>
+                <div class="start">
+                    <button onclick="start()" id="startButton">Запустить таймер</button>
 
-        <div class="cont">
-            <table>
-                <thead>
-                    <tr >
-                        <th>Игрок</th>
-                        <th>Рекорд</th>
-                        <th>Дата рекорда</th>
-                    </tr>
-                </thead>
-                {% for record in records %}
-                    <tr>
-                        <td>{{ record.username }}</td>
-                        <td>{{ record.score }}</td>
-                        <td>{{ record.date }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
+                </div>
+                <p id="timer" class ="text"><br>1:00</p>
+                <style>
+                    .start {
+                    display: flex;
+                    justify-content: center; /* Центрирование по горизонтали */
+                    align-items: center; /* Центрирование по вертикали */
+                    margin-top: 42px;
+                    }
+
+                    #startButton {
+                        border-radius: 58.333px;
+                        background-color: #8526ff;
+                        color: #eeefff;
+                        white-space: nowrap;
+                        letter-spacing: -0.56px;
+                        font: 500 28px Rubik, sans-serif;
+                        padding: 19px 60px;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                    @media (max-width: 991px) {
+                        .start {
+                            margin-top: 40px;
+                        }
+                        #startButton {
+                            white-space: initial;
+                            padding: 10px 20px; /* Скорректированный padding для маленьких экранов */
+                            font-size: 24px; /* Скорректированный размер шрифта для маленьких экранов */
+                        }
+                    }
+                </style>
+                <div hidden="hidden" id="ans" class="text">
+                    <p id="example">Пример</p>
+                    <input id="player_answer" autocomplete="off">
+                    <button id="set_answer">Нажми плз</button>
+                    <style>
+                        #set_answer {
+                            border: 2px solid #000; /* Толщина границы и ее цвет */
+                            border-radius: 10px; /* Закругление углов */
+                            padding: 10px 20px; /* Внутренние отступы */
+                            font-size: 16px; /* Размер шрифта */
+                            background-color: transparent; /* Прозрачный фон */
+                            cursor: pointer; /* Изменение курсора при наведении */
+                        }
+
+                        #set_answer:hover {
+                            background-color: #f0f0f0; /* Цвет фона при наведении курсора */
+                        }
+                    </style>
+                    <p id="answer">0</p>
+                </div>
+            </div>
+
+            <div class="cont">
+                <table>
+                    <thead>
+                        <tr >
+                            <th>Игрок</th>
+                            <th>Рекорд</th>
+                            <th>Дата рекорда</th>
+                        </tr>
+                    </thead>
+                    {% for record in records %}
+                        <tr>
+                            <td>{{ record.username }}</td>
+                            <td>{{ record.score }}</td>
+                            <td>{{ record.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <style>
+                .cont {
+                    font-family: 'Rubik', sans-serif;
+                }
+            </style>
         </div>
-        <style>
-            .cont {
-                font-family: 'Rubik', sans-serif;
-            }
-        </style>
     </div>
 </body>
 <footer>
-    {% include 'footer.html' %}
+    <div class="footer"> <!-- Подвал -->
+        <div class="footer-section">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd0b3c41aa532ff92b776294b387ab7b55453a4f0fbbcad7b61e03d3a5bc1a1f?apiKey=623949ae645442948e0700762c61b9d6&"
+            class="img"
+          />
+          <div class="footer-text">Развивающие игры</div>
+        </div>
+        <div class="footer-section">
+          <div class="footer-link"><a href="/index" class="ttt">Главная</a></div>
+          <div class="footer-link"><a href="#aboutGames" class="ttt">О проекте</a></div>
+          <div class="footer-link"><a href="#aboutUs" class="ttt">О нас</a></div>
+        </div>
+        <div class="footer-section">
+          <div class="footer-link"><a href="Games/tic.html" class="ttt">Крестики-нолики</a></div>
+          <div class="footer-link"><a href="Games/speedScore.html" class="ttt">Устный счёт</a></div>
+        </div>
+        <div class="footer-login"><a href="/login.html" class="ttt">Войти</a></div>
+      </div>
+      <style>
+
+        .ttt{
+          color: #fff;
+          text-decoration: none;
+        }
+
+        body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        }
+
+        .content {
+            flex: 1;
+
+        }
+
+        .footer {
+        background-color: #000;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        font-size: 18px;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: -0.36px;
+        justify-content: space-between;
+        padding: 70px 76px;
+        }
+
+        @media (max-width: 991px) {
+        .footer {
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        }
+
+        .footer-section {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .img {
+        aspect-ratio: 1.96;
+        object-fit: auto;
+        object-position: center;
+        width: 180px;
+        fill: #fff;
+        align-self: center;
+        margin: 0 18px;
+        }
+
+        .footer-text {
+        font-family: Rubik, sans-serif;
+        margin-top: 36px;
+        text-transform: uppercase;
+        letter-spacing: -0.4px;
+        font-size: 20px;
+        }
+
+        .footer-link {
+        font-family: Rubik, sans-serif;
+        margin-top: 20px;
+        }
+
+        .footer-login {
+        font-family: Rubik, sans-serif;
+        justify-content: center;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 1);
+        white-space: nowrap;
+        padding: 15px 35px;
+        margin: auto 0;
+        }
+
+        @media (max-width: 991px) {
+        .footer-login {
+            white-space: initial;
+            padding: 0 20px;
+        }
+        }
+      </style>
+
 </footer>
 <script src="{% static 'Educational-Games-WebSite/js/startSpeedScore.js' %}"></script>
 <script src="{% static 'Educational-Games-WebSite/js/addScore.js' %}"></script>

@@ -9,35 +9,13 @@
 </head>
 <header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     {% include 'menu.html' %}
 
 </header>
 <body class="content">
 
 
-    <a href="menu.html">munu</a>
-    <a href="Games/calc.html">calc</a>
-    <a href="Games/gameList.html">gameList</a>
-    <a href="Games/speedScore.html">спидскор</a>
-    <a href="account.html">аккаунты</a>
-    <a href="login.html">login</a>
-    <a href="loout.html">logout</a>
-    <a href="registration.html">регистрация</a>
+    
 
     <div class="div22">
         <div class="div-222">Развивающие игры для детей</div>
@@ -133,6 +111,7 @@
           position: absolute;
           top: 0;
           left: 0;
+          right: 0;
           width: 470px;
           height: 570px;
           transform: translate(1050.15px, 122.52px);
@@ -269,17 +248,23 @@
           <div class="footer-text">Развивающие игры</div>
         </div>
         <div class="footer-section">
-          <div class="footer-link">Главная</div>
-          <div class="footer-link">О проекте</div>
-          <div class="footer-link">О нас</div>
+          <div class="footer-link"><a href="/" class="ttt">Главная</a></div>
+          <div class="footer-link"><a href="#aboutGames" class="ttt">О проекте</a></div>
+          <div class="footer-link"><a href="#aboutUs" class="ttt">О нас</a></div>
         </div>
         <div class="footer-section">
-          <div class="footer-link">Крестики-нолики</div>
-          <div class="footer-link">Устный счёт</div>
+          <div class="footer-link"><a href="/Games/Tic-tac-toe" class="ttt">Крестики-нолики</a></div>
+          <div class="footer-link"><a href="/Games/SpeedScore" class="ttt">Устный счёт</a></div>
         </div>
-        <div class="footer-login">Войти</div>
+        <div class="footer-login"><a href="login/" class="ttt">Войти</a></div>
       </div>
       <style>
+
+        .ttt{
+          color: #fff;
+          text-decoration: none;
+        }
+
         body {
         display: flex;
         flex-direction: column;
