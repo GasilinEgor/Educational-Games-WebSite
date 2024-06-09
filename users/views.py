@@ -49,5 +49,7 @@ def logout_page(request):
 
 def account_information(request):
     player = Player.objects.filter(username=request.user.username).get()
-    context = {'player': player}
+    max_points = 1000 + int(player.points) * 500
+    context = {'player': player,
+               'max_points': max_points}
     return render(request, 'account.html', context)
