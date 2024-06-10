@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import SpeedScoreRecords
 from datetime import date
+from users.views import upgrade_points
 
 
 def index(request):
@@ -37,6 +38,8 @@ def speed(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         new_value = data.get('value')
+        level = data.get('game_level')
+        upgrade_points(username=request.user.username, points=int(new_value), k=5, game_level=int(level))
         try:
             record = SpeedScoreRecords.objects.filter(username=request.user.username).first()
             if int(record.score) < int(new_value):

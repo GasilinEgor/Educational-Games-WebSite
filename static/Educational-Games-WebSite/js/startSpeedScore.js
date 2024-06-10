@@ -24,7 +24,7 @@ function start() {
             let xhr = new XMLHttpRequest();
             xhr.open('POST', 'ajax', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify({value: total.innerHTML}));
+            xhr.send(JSON.stringify({value: total.innerHTML, game_level: level}));
         }
     }, 1000);
     started = true;

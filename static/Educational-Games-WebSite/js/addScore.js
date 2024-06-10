@@ -1,10 +1,10 @@
-let total = 0;
-ans = document.getElementById('answer')
+let ans = document.getElementById('answer')
 const button = document.getElementById('set_answer');
 button.addEventListener('click', () => {
     let answer = document.getElementById('player_answer')
     let example = document.getElementById('example')
     if (is_right(example.innerHTML, answer.value)) {
+        let total = document.getElementById('answer').innerHTML
         total++;
         ans.innerHTML = total;
     }

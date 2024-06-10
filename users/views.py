@@ -49,7 +49,20 @@ def logout_page(request):
 
 def account_information(request):
     player = Player.objects.filter(username=request.user.username).get()
-    max_points = 1000 + int(player.points) * 500
+    max_points = 1000 + int(player.level) * 500
     context = {'player': player,
                'max_points': max_points}
     return render(request, 'account.html', context)
+
+
+def upgrade_points(username, points, k=1, game_level=1):
+    player = Player.objects.filter(username=username).get()
+    level = player.level
+    current_points = points * k * game_level + int(player.points)
+    max_points = 1000 + int(player.level) * 500
+    if max_points <= current_points:
+        level += 1
+        current_points -= max_points
+    player.level = level
+    player.points = current_points
+    player.save()
