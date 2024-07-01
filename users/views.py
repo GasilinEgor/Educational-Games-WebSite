@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from .forms import SignUpForm, LoginForm
-from .models import Player
+from .forms import SignUpForm, LoginForm, CreateGroupForm
+from .models import Player, Group
 from datetime import date
 
 
@@ -29,7 +29,6 @@ def registration(request):
 def login_page(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             Username = form.data['username']
             Password = form.data['password']
@@ -54,6 +53,23 @@ def account_information(request):
                'max_points': max_points}
     return render(request, 'account.html', context)
 
+def create_group_page(request):
+    context={}
+    if request.method == 'POST':
+        form = CreateGroupForm(request.POST)
+        if form.is_valid():
+            group_info = {'name': form.data['name'],
+                          'slogan': form.data['slogan'],
+                          'description': form.data['description'],
+                          }
+            player = Player.objects.filter(username=request.user.username).get()
+            create_group(player, group_info)
+            return redirect('/')
+    else:
+        form = CreateGroupForm()
+    context['form'] = form
+    return render(request, 'Groups/create_group.html', context)
+
 
 def upgrade_points(username, points, k=1, game_level=1):
     player = Player.objects.filter(username=username).get()
@@ -66,3 +82,31 @@ def upgrade_points(username, points, k=1, game_level=1):
     player.level = level
     player.points = current_points
     player.save()
+
+#  Функции работы с группами
+#  Создание группы
+def create_group(player: Player, group_info: dict):
+    group = Group.objects.create(name=group_info['name'], slogan=group_info['slogan'],
+                                 description=group_info['description'], members_count=1, lieder=player)
+    group.save()
+    player.group = group
+    player.save()
+
+#  добавление пользователя в группу
+def add_member_from_group(player: Player, group: Group):
+    if player.group is None:
+        player.group = Group
+        group.members_count += 1
+        player.save()
+        group.save()
+        return True
+    else:
+        return False
+
+#  Удаление пользователя из группы
+def delete_member_from_group():
+    pass
+
+#  удаление группы
+def delete_group():
+    pass

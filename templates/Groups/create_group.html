@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание группы</title>
+</head>
+<header>
+    {% include 'menu.html' %}
+</header>
+<body>
+    <form action="/Groups/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" id="inn">Создать</button>
+</body>
+</html>

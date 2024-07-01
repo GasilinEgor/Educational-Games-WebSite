@@ -52,7 +52,37 @@ class LoginForm(forms.Form):
         required=True,
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Пароль'
+                   'placeholder': 'Пароль',
                    }
+        )
+    )
+
+
+class CreateGroupForm(forms.Form):
+    name = forms.CharField(
+        label='Название',
+        max_length=31,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Название',
+                   }
+        )
+    )
+
+    slogan = forms.CharField(
+        label='Слоган',
+        max_length=127,
+        widget=forms.Textarea(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Слоган'}
+        )
+    )
+
+    description = forms.CharField(
+        label='Описание',
+        max_length=2047,
+        widget=forms.Textarea(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Описание'}
         )
     )
