@@ -8,6 +8,21 @@
     {% include 'menu.html' %}
 </header>
 <body>
-
+    {% if in_group %}
+        <p>{{ group.name }}</p>
+        <p>{{ group.slogan }}</p>
+        <p>{{ group.description }}</p>
+        <p>{{ group.members_count }}</p>
+        <p>{{ group.lieder.username }}</p>
+    {% else %}
+        {% for group_info in group %}
+            <p>{{ group_info.name }}</p>
+            <p>{{ group_info.slogan }}</p>
+            <p>{{ group_info.description }}</p>
+            <p>{{ group_info.members_count }}</p>
+            <p>{{ group_info.lieder.username }}</p>
+            <button>Вступить (не работает)</button>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

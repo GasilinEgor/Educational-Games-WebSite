@@ -8,7 +8,7 @@
     {% include 'menu.html' %}
 </header>
 <body>
-    <form action="/Groups/" method="post">
+    <form action="/Groups/CreateGroup/" method="post">
         {% csrf_token %}
         {{ form.as_p }}
     <button type="submit" id="inn">Создать</button>

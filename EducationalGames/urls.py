@@ -32,5 +32,6 @@ urlpatterns = [
     path('Games/Tic-tac-toe/circle/', views.circle_img),
     path('Account/', users_views.account_information),
     path('Games/SpeedScore/ajax', views.speed),
-    path('Groups/', users_views.create_group_page),
+    path('Groups/CreateGroup', users_views.create_group_page),
+    path('Groups/', users_views.group_list_page),
 ]
