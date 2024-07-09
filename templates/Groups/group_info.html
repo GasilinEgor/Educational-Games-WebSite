@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Информация о группе</title>
+</head>
+<body>
+    <p>{{ group.name }}</p>
+    <p>{{ group.slogan }}</p>
+    <p>{{ group.description }}</p>
+    <p>{{ group.members_count }}</p>
+    <p>{{ group.lieder.username }}</p>
+    {% if flag %}
+        <a href="/Groups/{{group.pk}}/delete">Выйти</a>
+    {% else %}
+        <a href="/Groups/{{group.pk}}/add">Войти</a>
+    {% endif %}
+</body>
+<script src="{% static 'Educational-Games-WebSite/js/Groups.js' %}"></script>
+</html>

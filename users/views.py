@@ -1,5 +1,9 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .forms import SignUpForm, LoginForm, CreateGroupForm
 from .models import Player, Group
 from datetime import date
@@ -53,7 +57,7 @@ def account_information(request):
                'max_points': max_points}
     return render(request, 'account.html', context)
 
-#  Функция отрисовки страницы создания группы
+#  Р¤СѓРЅРєС†РёСЏ РѕС‚СЂРёСЃРѕРІРєРё СЃС‚СЂР°РЅРёС†С‹ СЃРѕР·РґР°РЅРёСЏ РіСЂСѓРїРїС‹
 def create_group_page(request):
     context={}
     if request.method == 'POST':
@@ -71,18 +75,41 @@ def create_group_page(request):
     context['form'] = form
     return render(request, 'Groups/create_group.html', context)
 
-#  Функция обработки страницы списка групп
+#  Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°Р±РѕС‚РєРё СЃС‚СЂР°РЅРёС†С‹ СЃРїРёСЃРєР° РіСЂСѓРїРї
 def group_list_page(request):
-    context = {}
-    player = Player.objects.filter(username=request.user.username).get()
-    if player.group is None:
-        group = Group.objects.all()
-        context['in_group'] = False
-        context['group'] = group
-    else:
-        context['in_group'] = True
-        context['group'] = player.group
+    group = Group.objects.all()
+    context = {'group': group}
     return render(request, 'Groups/group_list.html', context)
+
+def group_info_page(request, group_id):
+    group = Group.objects.get(id=group_id)
+    player = Player.objects.filter(username=request.user.username).get()
+    context = {'group': group}
+    if player.group is not None:
+        if player.group.pk == group_id:
+            context['flag'] = True
+        else:
+            context['flag'] = False
+    else:
+        context['flag'] = False
+    return render(request, 'Groups/group_info.html', context)
+
+
+def group_add_member(request, group_id):
+    player = Player.objects.filter(username=request.user.username).get()
+    group = Group.objects.get(id=group_id)
+    add_member_to_group(player, group)
+    return redirect('/Groups/' + str(group_id) + '/')
+
+
+def group_delete_member(request, group_id):
+    player = Player.objects.filter(username=request.user.username).get()
+    group = Group.objects.get(id=group_id)
+    flag = delete_member_from_group(player, group)
+    if flag:
+        return redirect('/Groups/')
+    else:
+        return redirect('/Groups/' + str(group_id) + '/')
 
 
 def upgrade_points(username, points, k=1, game_level=1):
@@ -97,8 +124,8 @@ def upgrade_points(username, points, k=1, game_level=1):
     player.points = current_points
     player.save()
 
-#  Функции работы с группами
-#  Создание группы
+#  Р¤СѓРЅРєС†РёРё СЂР°Р±РѕС‚С‹ СЃ РіСЂСѓРїРїР°РјРё
+#  РЎРѕР·РґР°РЅРёРµ РіСЂСѓРїРїС‹
 def create_group(player: Player, group_info: dict):
     group = Group.objects.create(name=group_info['name'], slogan=group_info['slogan'],
                                  description=group_info['description'], members_count=1, lieder=player)
@@ -106,10 +133,10 @@ def create_group(player: Player, group_info: dict):
     player.group = group
     player.save()
 
-#  добавление пользователя в группу
-def add_member_from_group(player: Player, group: Group):
+#  РґРѕР±Р°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІ РіСЂСѓРїРїСѓ
+def add_member_to_group(player: Player, group: Group):
     if player.group is None:
-        player.group = Group
+        player.group = group
         group.members_count += 1
         player.save()
         group.save()
@@ -117,10 +144,21 @@ def add_member_from_group(player: Player, group: Group):
     else:
         return False
 
-#  Удаление пользователя из группы
-def delete_member_from_group():
-    pass
+#  РЈРґР°Р»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР· РіСЂСѓРїРїС‹
+def delete_member_from_group(player: Player, group: Group):
+    if player != group.lieder:
+        group.members_count -= 1
+        player.group = None
+        player.save()
+        group.save()
+        return True
+    elif group.members_count == 1:
+        player.group = None
+        delete_group(group)
+        return True
+    else:
+        return False
 
-#  удаление группы
-def delete_group():
-    pass
+#  СѓРґР°Р»РµРЅРёРµ РіСЂСѓРїРїС‹
+def delete_group(group: Group):
+    group.delete()
