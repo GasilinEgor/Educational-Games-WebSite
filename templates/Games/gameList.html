@@ -4,35 +4,14 @@
     {% load static %}
     <meta charset="UTF-8">
     <title>Список игр</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Для красивого отображения на мобильных устройствах-->
+    <link rel = "stylesheet" href = "../static/Educational-Games-WebSite/css/gameList.css">
 
 
 </head>
 
 <body >
     <div class="content">
-        <style>
-            .list {
-                font-family: 'Rubik', sans-serif;
-                text-align: center; /* Центрирование текста */
-                font-size: 40px;
-                margin-top: 22px;
-            }
-            .ha2{
-                display: flex;
-                font-family: 'Rubik', sans-serif;
-                font-size: 24px;
-
-
-            }
-            .text{
-                display: flex;
-                font-family: 'Rubik', sans-serif;
-                font-size: 18px;
-            }
-            
-    
-        </style>
         <header>
 
             {% include 'menu.html' %}
@@ -63,49 +42,7 @@
             </div>
         </div>
 
-        <style>
-            .cont{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 60px; 
-            }
-            .cl{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-              
-                padding: 20px;
-                border-radius: 10px;
-            }
-            .k {
-                display: flex;
-                align-items: center;
-                margin-top: 42px;
-                color: white;
-                text-decoration: none;
-            }
-            .top1{
-                color: white;
-                text-decoration: none;
-            }
-            
-
-            #kk {
-                display: flex;
-                border-radius: 58.333px;
-                background-color: #8526ff;
-                color: #eeefff;
-                white-space: nowrap;
-                letter-spacing: -0.56px;
-                font: 500 28px Rubik, sans-serif;
-                padding: 19px 60px;
-                border: none;
-                cursor: pointer;
-                transform: scale(0.4667);
-            }
-        </style>
-
+        
     </div>
 </body>
 <footer>
@@ -129,90 +66,5 @@
         </div>
         <div class="footer-login"><a href="/login.html" class="ttt">Выйти</a></div>
       </div>
-      <style>
-
-        .ttt{
-          color: #fff;
-          text-decoration: none;
-        }
-
-        body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        margin: 0;
-        }
-
-        .content {
-            flex: 1;
-
-        }
-
-        .footer {
-        background-color: #000;
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        font-size: 18px;
-        color: #fff;
-        font-weight: 500;
-        letter-spacing: -0.36px;
-        justify-content: space-between;
-        padding: 70px 76px;
-        }
-
-        @media (max-width: 991px) {
-        .footer {
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-        }
-
-        .footer-section {
-        display: flex;
-        flex-direction: column;
-        }
-
-        .img {
-        aspect-ratio: 1.96;
-        object-fit: auto;
-        object-position: center;
-        width: 180px;
-        fill: #fff;
-        align-self: center;
-        margin: 0 18px;
-        }
-
-        .footer-text {
-        font-family: Rubik, sans-serif;
-        margin-top: 36px;
-        text-transform: uppercase;
-        letter-spacing: -0.4px;
-        font-size: 20px;
-        }
-
-        .footer-link {
-        font-family: Rubik, sans-serif;
-        margin-top: 20px;
-        }
-
-        .footer-login {
-        font-family: Rubik, sans-serif;
-        justify-content: center;
-        border-radius: 50px;
-        border: 2px solid rgba(255, 255, 255, 1);
-        white-space: nowrap;
-        padding: 15px 35px;
-        margin: auto 0;
-        }
-
-        @media (max-width: 991px) {
-        .footer-login {
-            white-space: initial;
-            padding: 0 20px;
-        }
-        }
-      </style>
-
 </footer>
 </html>
