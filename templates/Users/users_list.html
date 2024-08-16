@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+    {% for user in users %}
+        <p>{{ user.username }}</p>
+        <p>{{ user.level }}</p>
+        {% if user.group is None %}
+            <p>Не состоит в группе</p>
+        {% else %}
+            <p>{{ user.group.name }}</p>
+        {% endif %}
+        <a>Посмотреть информацию</a>
+    {% endfor %}
+</body>
+</html>

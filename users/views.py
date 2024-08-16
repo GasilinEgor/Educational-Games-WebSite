@@ -57,6 +57,7 @@ def account_information(request):
                'max_points': max_points}
     return render(request, 'account.html', context)
 
+
 #  Функция отрисовки страницы создания группы
 def create_group_page(request):
     context={}
@@ -75,11 +76,13 @@ def create_group_page(request):
     context['form'] = form
     return render(request, 'Groups/create_group.html', context)
 
+
 #  Функция обработки страницы списка групп
 def group_list_page(request):
     group = Group.objects.all()
     context = {'group': group}
     return render(request, 'Groups/group_list.html', context)
+
 
 def group_info_page(request, group_id):
     group = Group.objects.get(id=group_id)
@@ -123,6 +126,21 @@ def upgrade_points(username, points, k=1, game_level=1):
     player.level = level
     player.points = current_points
     player.save()
+
+
+#  Функции для пользователей
+#  Функция вывода всех пользователей
+def users_list_page(request):
+    users = Player.objects.all()
+    context = {'users': users}
+    print(users[0].group)
+    return render(request, 'Users/users_list.html', context)
+
+
+#Функция вывода информации о пользователе
+def user_information(request):
+    pass
+
 
 #  Функции работы с группами
 #  Создание группы
