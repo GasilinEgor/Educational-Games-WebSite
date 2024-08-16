@@ -30,7 +30,6 @@ urlpatterns = [
     path('Games/Tic-tac-toe/', views.tic_tac_toe),
     path('Games/Tic-tac-toe/close/', views.close_img),
     path('Games/Tic-tac-toe/circle/', views.circle_img),
-    path('Account/', users_views.account_information),
     path('Games/SpeedScore/ajax', views.speed),
     path('Groups/CreateGroup/', users_views.create_group_page),
     path('Groups/', users_views.group_list_page),
@@ -38,4 +37,5 @@ urlpatterns = [
     path('Groups/<int:group_id>/add/', users_views.group_add_member),
     path('Groups/<int:group_id>/delete/', users_views.group_delete_member),
     path('Accounts/', users_views.users_list_page),
+    path('Account/<int:user_id>/', users_views.user_information_page),
 ]

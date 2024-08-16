@@ -5,14 +5,19 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import SpeedScoreRecords
 from datetime import date
 from users.views import upgrade_points
+from users.models import Player
 
 
 def index(request):
-    return render(request, 'index.html', {})
+    player = Player.objects.get(username=request.user.username)
+    context = {'user_id': player.pk}
+    return render(request, 'index.html', context)
 
 
 def game_list(request):
-    return render(request, 'Games/gameList.html', {})
+    player = Player.objects.get(username=request.user.username)
+    context = {'user_id': player.pk}
+    return render(request, 'Games/gameList.html', context)
 
 
 def speed_score(request):
@@ -23,10 +28,14 @@ def speed_score(request):
     context = {'task': "Реши как можно больше задач!",
                'records': records,
                }
+    player = Player.objects.get(username=request.user.username)
+    context['user_id'] = player.pk
     return render(request, 'Games/speedScore.html', context)
 
 def tic_tac_toe(request):
-    context = {'task': "Победи своего друга!"}
+    player = Player.objects.get(username=request.user.username)
+    context = {'user_id': player.pk,
+               'task': "Победи своего друга!"}
     return render(request, 'Games/tic.html', context)
 
 def circle_img(request):

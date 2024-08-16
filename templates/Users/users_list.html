@@ -13,7 +13,7 @@
         {% else %}
             <p>{{ user.group.name }}</p>
         {% endif %}
-        <a>Посмотреть информацию</a>
+        <a href="/Account/{{user.pk}}">Посмотреть информацию</a>
     {% endfor %}
 </body>
 </html>

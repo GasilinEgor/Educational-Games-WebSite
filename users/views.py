@@ -50,14 +50,7 @@ def logout_page(request):
     return redirect('/')
 
 
-def account_information(request):
-    player = Player.objects.filter(username=request.user.username).get()
-    max_points = 1000 + int(player.level) * 500
-    context = {'player': player,
-               'max_points': max_points}
-    return render(request, 'account.html', context)
-
-
+#  Функции страниц группы
 #  Функция отрисовки страницы создания группы
 def create_group_page(request):
     context={}
@@ -83,7 +76,7 @@ def group_list_page(request):
     context = {'group': group}
     return render(request, 'Groups/group_list.html', context)
 
-
+#  Функция обработки страницы информации группы
 def group_info_page(request, group_id):
     group = Group.objects.get(id=group_id)
     player = Player.objects.filter(username=request.user.username).get()
@@ -97,14 +90,14 @@ def group_info_page(request, group_id):
         context['flag'] = False
     return render(request, 'Groups/group_info.html', context)
 
-
+#  Функция добавления пользователя в группу
 def group_add_member(request, group_id):
     player = Player.objects.filter(username=request.user.username).get()
     group = Group.objects.get(id=group_id)
     add_member_to_group(player, group)
     return redirect('/Groups/' + str(group_id) + '/')
 
-
+#  Функция удаления пользователя из группы
 def group_delete_member(request, group_id):
     player = Player.objects.filter(username=request.user.username).get()
     group = Group.objects.get(id=group_id)
@@ -114,7 +107,7 @@ def group_delete_member(request, group_id):
     else:
         return redirect('/Groups/' + str(group_id) + '/')
 
-
+#  Функция обновления уровня пользователя
 def upgrade_points(username, points, k=1, game_level=1):
     player = Player.objects.filter(username=username).get()
     level = player.level
@@ -128,7 +121,7 @@ def upgrade_points(username, points, k=1, game_level=1):
     player.save()
 
 
-#  Функции для пользователей
+#  Функции страниц пользователей
 #  Функция вывода всех пользователей
 def users_list_page(request):
     users = Player.objects.all()
@@ -138,8 +131,13 @@ def users_list_page(request):
 
 
 #Функция вывода информации о пользователе
-def user_information(request):
-    pass
+def user_information_page(request, user_id):
+    player = Player.objects.filter(id=user_id).get()
+    max_points = 1000 + int(player.level) * 500
+    context = {'player': player,
+               'max_points': max_points,
+               'user_id': player.pk}
+    return render(request, 'Users/user_information.html', context)
 
 
 #  Функции работы с группами
