@@ -9,8 +9,11 @@ from users.models import Player
 
 
 def index(request):
-    player = Player.objects.get(username=request.user.username)
-    context = {'user_id': player.pk}
+    if request.user.pk is not None:
+        player = Player.objects.get(username=request.user.username)
+        context = {'user_id': player.pk}
+    else:
+        context = {}
     return render(request, 'index.html', context)
 
 
