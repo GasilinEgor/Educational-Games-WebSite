@@ -1,0 +1,101 @@
+.acc {
+    text-transform: uppercase;
+    margin-left: 6px;
+    font: 700 40px/55px Rubik, sans-serif;
+    margin-top: 22px;
+}
+@media (max-width: 991px) {
+    .div-2222 {
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 30px;
+    }
+}
+
+.ttt{
+    color: #fff;
+    text-decoration: none;
+  }
+
+  body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  }
+
+  .content {
+      flex: 1;
+
+  }
+
+  .footer {
+  background-color: #000;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  justify-content: space-between;
+  padding: 70px 76px;
+  }
+
+  @media (max-width: 991px) {
+  .footer {
+      flex-wrap: wrap;
+      padding: 0 20px;
+  }
+  }
+
+  .footer-section {
+  display: flex;
+  flex-direction: column;
+  }
+
+  .img {
+  aspect-ratio: 1.96;
+  object-fit: auto;
+  object-position: center;
+  width: 180px;
+  fill: #fff;
+  align-self: center;
+  margin: 0 18px;
+  }
+
+  .footer-text {
+  font-family: Rubik, sans-serif;
+  margin-top: 36px;
+  text-transform: uppercase;
+  letter-spacing: -0.4px;
+  font-size: 20px;
+  }
+
+  .footer-link {
+  font-family: Rubik, sans-serif;
+  margin-top: 20px;
+  }
+
+  .footer-login {
+  font-family: Rubik, sans-serif;
+  justify-content: center;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  white-space: nowrap;
+  padding: 15px 35px;
+  margin: auto 0;
+  }
+
+  @media (max-width: 991px) {
+  .footer-login {
+      white-space: initial;
+      padding: 0 20px;
+  }
+  }
+  
+  .text1{
+    margin-left: 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+}

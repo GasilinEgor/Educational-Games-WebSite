@@ -1,0 +1,40 @@
+.list {
+    font-family: 'Rubik', sans-serif;
+    text-align: center; /* Центрирование текста */
+    font-size: 30px;
+    margin-top: 22px;
+}
+.text{
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+}
+body {
+    text-align: center;
+}
+#field td{
+    width: 27px;
+    height: 27px;
+    border: 1px solid black;
+    text-align: center;
+}
+h1{
+    font-size: 50px;
+    color: black;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+button{
+    background-color: #8526ff;
+    color: #eeefff;
+    
+    font-size: 18px;
+
+
+    border-radius: 58.333px;
+    width: 200px;
+    height: 50px;
+}
+main {
+    padding-top: 2px;
+}

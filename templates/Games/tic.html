@@ -9,48 +9,10 @@
         <title>
             Крестики-нолики
         </title>
-            <style type="text/css">
-        .list {
-            font-family: 'Rubik', sans-serif;
-            text-align: center; /* Центрирование текста */
-            font-size: 30px;
-            margin-top: 22px;
-        }
-        .text{
-            text-align: center;
-            font-family: 'Rubik', sans-serif;
-            font-size: 18px;
-        }
-        body {
-            text-align: center;
-        }
-        #field td{
-            width: 27px;
-            height: 27px;
-            border: 1px solid black;
-            text-align: center;
-        }
-        h1{
-            font-size: 50px;
-            color: black;
-            margin-bottom: 2px;
-            margin-top: 2px;
-        }
-        button{
-            background-color: #8526ff;
-            color: #eeefff;
-            
-            font-size: 18px;
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Для красивого отображения на мобильных устройствах-->
+        <link rel = "stylesheet" href = "/static/Educational-Games-WebSite/css/speedScore.css">
+        <link rel = "stylesheet" type="text/css" href = "/static/Educational-Games-WebSite/css/speedScore_squares.css"> <!--Игровое поле-->
 
-
-            border-radius: 58.333px;
-            width: 200px;
-            height: 50px;
-        }
-        main {
-            padding-top: 2px;
-        }
-    </style>
     </head>
     <body>
 
@@ -180,91 +142,6 @@
             </div>
             <div class="footer-login"><a href="/login.html" class="ttt">Войти</a></div>
           </div>
-          <style>
-    
-            .ttt{
-              color: #fff;
-              text-decoration: none;
-            }
-    
-            body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            }
-    
-            .content {
-                flex: 1;
-    
-            }
-    
-            .footer {
-            background-color: #000;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            font-size: 18px;
-            color: #fff;
-            font-weight: 500;
-            letter-spacing: -0.36px;
-            justify-content: space-between;
-            padding: 70px 76px;
-            }
-    
-            @media (max-width: 991px) {
-            .footer {
-                flex-wrap: wrap;
-                padding: 0 20px;
-            }
-            }
-    
-            .footer-section {
-            display: flex;
-            flex-direction: column;
-            }
-    
-            .img {
-            aspect-ratio: 1.96;
-            object-fit: auto;
-            object-position: center;
-            width: 180px;
-            fill: #fff;
-            align-self: center;
-            margin: 0 18px;
-            }
-    
-            .footer-text {
-            font-family: Rubik, sans-serif;
-            margin-top: 36px;
-            text-transform: uppercase;
-            letter-spacing: -0.4px;
-            font-size: 20px;
-            }
-    
-            .footer-link {
-            font-family: Rubik, sans-serif;
-            margin-top: 20px;
-            }
-    
-            .footer-login {
-            font-family: Rubik, sans-serif;
-            justify-content: center;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 1);
-            white-space: nowrap;
-            padding: 15px 35px;
-            margin: auto 0;
-            }
-    
-            @media (max-width: 991px) {
-            .footer-login {
-                white-space: initial;
-                padding: 0 20px;
-            }
-            }
-          </style>
-    
 </footer>
     <script src="{% static 'Educational-Games-WebSite/js/tic.js' %}"></script>
 </html>
